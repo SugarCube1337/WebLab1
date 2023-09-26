@@ -1,0 +1,108 @@
+header {
+    background: radial-gradient(circle, #FF6699, #FF3366);
+    color: #ffffff;
+    text-align: center;
+    padding: 20px;
+    font-family: serif;
+    font-size: 24px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+
+header p {
+    font-style: italic;
+}
+
+
+form {
+    margin-top: 20px;
+    text-align: center;
+}
+
+
+.radio-group label {
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+
+label[for="y"] {
+    font-weight: bold;
+    color: #FF5733;
+}
+
+
+select#r {
+    width: 100px;
+    padding: 5px;
+}
+
+
+button[type="submit"] {
+    background: linear-gradient(45deg, #FFCC00, #FF9900, #FFCC00);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: background 0.3s ease, transform 0.2s ease;
+    border-radius: 7px;
+}
+
+button[type="submit"]:hover {
+    background: linear-gradient(45deg, #FF6600, #FF3300, #FF6600);
+    transform: scale(1.05);
+}
+
+
+#resultsContainer {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+#resultTableContainer {
+    text-align: center;
+    padding: 10px;
+    flex: 1;
+}
+
+#resultTable {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#resultTable th, #resultTable td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+#resultTable th {
+    background: radial-gradient(circle, #FF6699, #FF3366);
+    color: white;
+}
+
+#chartContainer {
+    flex: 1;
+    text-align: center;
+    padding: 10px;
+}
+
+#chartContainer img {
+    max-width: 100%;
+    height: auto;
+}
+
+
+
+

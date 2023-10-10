@@ -16,6 +16,13 @@ function isValidInput($x, $y, $r)
         return 'Invalid';
     }
 
+    if ($y < -5 || $y > 5) {
+        return 'Invalid';
+    }
+    if (!in_array($x, array(-3, -2, -1, 0, 1, 2, 3, 4, 5))) {
+        return 'Invalid';
+    }
+
     return true;
 }
 
@@ -41,15 +48,15 @@ function checkPoint($x, $y, $r)
 
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['x']) && isset($_POST['y']) && isset($_POST['r'])) {
-    $x = floatval($_POST['x']);
-    $y = floatval($_POST['y']);
-    $r = floatval($_POST['r']);
+    $x = $_POST['x'];
+    $y = ($_POST['y']);
+    $r = ($_POST['r']);
 
     // Проверка валидности входных данных
     $isValid = isValidInput($x, $y, $r);
 
     if ($isValid !== true) {
-        $result = 'Invalid';
+        $result = 'Invalid';///400
     } else {
         $result = checkPoint($x, $y, $r) ? 'Попадание' : 'Непопадание';
     }

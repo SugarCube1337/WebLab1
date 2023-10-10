@@ -53,3 +53,7 @@ document.getElementById("checkButton").addEventListener("click", async function(
         console.error('Ошибка:', error);
     }
 });
+
+
+////414: uri (округление)
+////get (405 method )

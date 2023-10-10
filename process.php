@@ -8,8 +8,17 @@ if (!isset($_SESSION['results'])) {
 
 function isValidInput($x, $y, $r)
 {
-    return is_numeric($x) && is_numeric($y) && is_numeric($r);
+    if (!is_numeric($x) || !is_numeric($y) || !is_numeric($r)) {
+        return 'Invalid';
+    }
+
+    if (!in_array($r, array(1, 1.5, 2, 2.5, 3))) {
+        return 'Invalid';
+    }
+
+    return true;
 }
+
 
 function checkPoint($x, $y, $r)
 {
@@ -39,8 +48,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['x']) && isset($_POST[
     // Проверка валидности входных данных
     $isValid = isValidInput($x, $y, $r);
 
-    // Вычисляем результат
-    $result = checkPoint($x, $y, $r);
+    if ($isValid !== true) {
+        $result = 'Invalid';
+    } else {
+        $result = checkPoint($x, $y, $r) ? 'Попадание' : 'Непопадание';
+    }
+
     $currentTime = date("d.m.Y H:i:s");
     $executionTime = microtime(true) - $_SERVER["REQUEST_TIME_FLOAT"];
 
@@ -49,7 +62,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['x']) && isset($_POST[
         'x' => $x,
         'y' => $y,
         'r' => $r,
-        'result' => $result ? 'Попадание' : 'Непопадание',
+        'result' => $result,
         'time' => $currentTime,
         'executionTime' => $executionTime
     ));

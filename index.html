@@ -1,20 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Проверка точки</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="shortcut icon" href="vt_duck.svg" type="image/x-icon">
 </head>
+
 <body>
-<header>
+<header class="header">
     <h1>Попадание точки на координатной плоскости в заданную область</h1>
-    <p>ФИО студента: Печкуров Данила Алексеевич</p>
-    <p>Номер группы: P3208</p>
-    <p>Номер варианта: 1816</p>
+    <div class="info">
+        <p>ФИО студента: Печкуров Данила Алексеевич</p>
+        <p>Номер группы: P3208</p>
+        <p>Номер варианта: 1816</p>
+    </div>
 </header>
-<main>
-    <form id="pointForm" action="process.php" method="post">//убрать форму
+<main class="main">
+
+    <div class="input-container">
         <label>Выберите координату X:</label>
         <div class="radio-group">
             <input type="radio" id="-3" name="x" value="-3" required>
@@ -38,7 +44,7 @@
         </div>
 
         <label for="y">Введите координату Y {-5, ..., 5}:</label>
-        <input type="number" id="y" name="y" step="0.01" min="-5" max="5" required>
+        <input type="number" id="y" name="y" step="0.1" min="-5" max="5" required>
 
         <label for="r">Выберите радиус R:</label>
         <select id="r" name="r" required>
@@ -49,19 +55,20 @@
             <option value="3">3</option>
         </select>
 
-        <button type="submit">Проверить</button>
-    </form>
-
-    <div id="resultsAndChartContainer">
-        <div id="chartContainer">
-            <img src="img.png" alt="Координатная плоскость" class="img">
+        <button type="button" id="checkButton">Проверить</button>
+    </div>
+    <div id="error-message" class="error-message"></div>
+    <div id="success-message" class="success-message"></div>
+    <div class="results-and-chart-container">
+        <div class="chart-container">
+            <img src="img.png" alt="Координатная плоскость" class="chart-img">
         </div>
-        <h2>Результаты:</h2>
-        <div class="result-table" id="resultsContainer">
+        <div class="results-container">
+            <h2>Результаты:</h2>
             <div class="table-container">
-                <table class="table-check" id="resultTable">
+                <table class="result-table" id="resultTable">
                     <thead>
-                    <tr class="table-header">
+                    <tr>
                         <th>X</th>
                         <th>Y</th>
                         <th>R</th>
@@ -76,7 +83,13 @@
         </div>
     </div>
 </main>
+<footer class="footer">
+    <p>Фронтенд - передопись. Код ревью - братский суд. </p>
+    <a href="https://github.com/SugarCube1337">
+        <img src="github-mark.svg" alt="GitHub" class="github-mark">
+    </a>
+</footer>
 <script src="script.js"></script>
 </body>
-</html>
 
+</html>

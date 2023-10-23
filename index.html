@@ -19,47 +19,50 @@
     </div>
 </header>
 <main class="main">
+    <div class="input-and-messages-container">
+        <div class="input-container">
+            <label>Выберите координату X:</label>
+            <div class="radio-group">
+                <input type="radio" id="-3" name="x" value="-3" required>
+                <label for="-3">-3</label>
+                <input type="radio" id="-2" name="x" value="-2" required>
+                <label for="-2">-2</label>
+                <input type="radio" id="-1" name="x" value="-1" required>
+                <label for="-1">-1</label>
+                <input type="radio" id="0" name="x" value="0" required>
+                <label for="0">0</label>
+                <input type="radio" id="1" name="x" value="1" required>
+                <label for="1">1</label>
+                <input type="radio" id="2" name="x" value="2" required>
+                <label for="2">2</label>
+                <input type="radio" id="3" name="x" value="3" required>
+                <label for="3">3</label>
+                <input type="radio" id="4" name="x" value="4" required>
+                <label for="4">4</label>
+                <input type="radio" id="5" name="x" value="5" required>
+                <label for="5">5</label>
+            </div>
 
-    <div class="input-container">
-        <label>Выберите координату X:</label>
-        <div class="radio-group">
-            <input type="radio" id="-3" name="x" value="-3" required>
-            <label for="-3">-3</label>
-            <input type="radio" id="-2" name="x" value="-2" required>
-            <label for="-2">-2</label>
-            <input type="radio" id="-1" name="x" value="-1" required>
-            <label for="-1">-1</label>
-            <input type="radio" id="0" name="x" value="0" required>
-            <label for="0">0</label>
-            <input type="radio" id="1" name="x" value="1" required>
-            <label for="1">1</label>
-            <input type="radio" id="2" name="x" value="2" required>
-            <label for="2">2</label>
-            <input type="radio" id="3" name="x" value="3" required>
-            <label for="3">3</label>
-            <input type="radio" id="4" name="x" value="4" required>
-            <label for="4">4</label>
-            <input type="radio" id="5" name="x" value="5" required>
-            <label for="5">5</label>
+            <label for="y">Введите координату Y {-5, ..., 5}:</label>
+            <input type="number" id="y" name="y" step="0.1" min="-5" max="5" required>
+
+
+            <label for="r">Выберите радиус R:</label>
+            <select id="r" name="r" required>
+                <option value="1">1</option>
+                <option value="1.5">1.5</option>
+                <option value="2">2</option>
+                <option value="2.5">2.5</option>
+                <option value="3">3</option>
+            </select>
+
+            <button type="button" id="check-button">Проверить</button>
         </div>
-
-        <label for="y">Введите координату Y {-5, ..., 5}:</label>
-        <input type="number" id="y" name="y" step="0.1" min="-5" max="5" required>
-
-
-        <label for="r">Выберите радиус R:</label>
-        <select id="r" name="r" required>
-            <option value="1">1</option>
-            <option value="1.5">1.5</option>
-            <option value="2">2</option>
-            <option value="2.5">2.5</option>
-            <option value="3">3</option>
-        </select>
-
-        <button type="button" id="check-button">Проверить</button>
+        <div class="messages-container">
+            <div id="error-message" class="error-message"></div>
+            <div id="success-message" class="success-message"></div>
+        </div>
     </div>
-    <div id="error-message" class="error-message"></div>
-    <div id="success-message" class="success-message"></div>
     <div class="results-and-chart-container">
         <div class="chart-container">
             <img src="img.png" alt="Координатная плоскость" class="chart-img">

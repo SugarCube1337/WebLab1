@@ -9,7 +9,7 @@ body {
 .header {
     background-color: #dcdcdc;
     text-align: center;
-    padding: 15px;
+    padding: 20px;
     box-shadow: 0 2px 4px rgb(0 0 0 / 10%);
 }
 
@@ -33,13 +33,26 @@ body {
     padding: 15px;
 }
 
+.input-and-messages-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+    width: 100%;
+    margin: 0 auto;
+}
+
 .input-container {
     background-color: #fff;
     padding: 15px;
     border-radius: 8px;
     box-shadow: 0 0 8px rgb(0 0 0 / 10%);
     text-align: center;
-    margin-bottom: 15px;
+}
+
+.messages-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .input-container label,
@@ -129,9 +142,10 @@ label[for="y"], select#r, #check-button {
 .results-and-chart-container {
     display: flex;
     flex-direction: row;
-    align-items: flex-start;
-    justify-content: space-between;
+    align-items: stretch;
+    justify-content: space-around;
     width: 100%;
+    margin-top: 20px;
 }
 
 
@@ -196,13 +210,18 @@ label[for="y"], select#r, #check-button {
     margin-top: 8px;
     text-align: center;
     padding: 10px;
-    border: 2px solid #F66;
+    color: #F66;
+    border: 2px #F66;
+    background-color: #FEE8E8;
     border-radius: 8px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .success-message {
     color: #6C6;
     border-color: #6C6;
+    background-color: #EAF5EA;
 }
 
 .footer p {

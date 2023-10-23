@@ -27,6 +27,10 @@ document.getElementById("checkButton").addEventListener("click", async function(
         return;
     }
 
+    // Округляем координату Y и радиус R до 2 знаков после запятой
+    const yRounded = parseFloat(y).toFixed(2);
+    const rRounded = parseFloat(r).toFixed(2);
+
     // Очищаем сообщение об ошибке, если данные введены правильно
     errorMessage.textContent = '';
     successMessage.textContent = 'Данные введены успешно!';
@@ -34,8 +38,8 @@ document.getElementById("checkButton").addEventListener("click", async function(
     try {
         const formData = new FormData();
         formData.append('x', x.value);
-        formData.append('y', y);
-        formData.append('r', r);
+        formData.append('y', yRounded);
+        formData.append('r', rRounded);
 
         const response = await fetch('process.php', {
             method: 'POST',
@@ -46,11 +50,15 @@ document.getElementById("checkButton").addEventListener("click", async function(
             const data = await response.text();
             const resultTable = document.getElementById('resultTable');
             resultTable.innerHTML = data;
+        } else if (response.status === 405) {
+            alert("Ошибка: метод не разрешён (405).");
+        } else if (response.status === 414) {
+            alert("Ошибка: uri слишком длинный (414).");
         } else {
-            console.error('Ошибка сервера:', response.status);
+            console.error("Ошибка сервера:", response.status);
         }
     } catch (error) {
-        console.error('Ошибка:', error);
+        console.error("Ошибка", error);
     }
 });
 

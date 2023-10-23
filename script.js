@@ -50,18 +50,10 @@ document.getElementById("checkButton").addEventListener("click", async function(
             const data = await response.text();
             const resultTable = document.getElementById('resultTable');
             resultTable.innerHTML = data;
-        } else if (response.status === 405) {
-            alert("Ошибка: метод не разрешён (405).");
-        } else if (response.status === 414) {
-            alert("Ошибка: uri слишком длинный (414).");
         } else {
-            console.error("Ошибка сервера:", response.status);
+            console.error('Ошибка сервера:', response.status);
         }
     } catch (error) {
-        console.error("Ошибка", error);
+        console.error('Ошибка:', error);
     }
 });
-
-
-////414: uri (округление)
-////get (405 method )

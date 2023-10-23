@@ -46,6 +46,17 @@ function checkPoint($x, $y, $r)
     return $isInSquare || $isInCircle || $isInTriangle;
 }
 
+// Проверяем метод запроса
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    http_response_code(405); // Метод не разрешен
+    exit();
+}
+
+// Проверяем длину URI
+if (strlen($_SERVER['REQUEST_URI']) > 2000) {
+    http_response_code(414); // URI слишком длинный
+    exit();
+}
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['x']) && isset($_POST['y']) && isset($_POST['r'])) {
     $x = $_POST['x'];

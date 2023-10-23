@@ -1,4 +1,4 @@
-document.getElementById("checkButton").addEventListener("click", async function() {
+document.getElementById("check-button").addEventListener("click", async function () {
 // async-await
 
     const x = document.querySelector('input[name="x"]:checked');

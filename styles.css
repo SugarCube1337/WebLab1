@@ -43,7 +43,7 @@ body {
 
 .input-container {
     background-color: #fff;
-    padding: 15px;
+    padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 8px rgb(0 0 0 / 10%);
     text-align: center;
@@ -100,12 +100,14 @@ body {
 }
 
 .chart-container:hover {
-    transform: scale(1.05);
+    transform: scale(1);
 }
 
 .result-table tbody tr:hover {
     background-color: #f2f2f2;
     transition: background-color 0.1s ease;
+    overflow: auto;
+    max-height: 80em
 }
 
 
@@ -131,19 +133,20 @@ label[for="y"], select#r, #check-button {
 
 #check-button {
     cursor: pointer;
-    transition: background 0.3s ease, transform 0.2s ease;
+    transition: background 0s ease, transform 0s ease;
 }
 
-#check-button:hover {
+#check-button:active {
     background: #dcdcdc;
-    transform: scale(1.05);
+    transform: scale(0.95);
 }
+
 
 .results-and-chart-container {
     display: flex;
     flex-direction: row;
-    align-items: stretch;
-    justify-content: space-around;
+    align-items: start;
+    justify-content: space-between;
     width: 100%;
     margin-top: 20px;
 }
@@ -157,6 +160,8 @@ label[for="y"], select#r, #check-button {
 .results-container {
     opacity: 0;
     animation: fade-in 0.5s forwards;
+    max-height: 265px;
+    overflow-y: auto;
 }
 
 @keyframes fade-in {
@@ -174,18 +179,25 @@ label[for="y"], select#r, #check-button {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
+    max-height: 300px;
+    overflow-y: auto;
 }
+
 
 .result-table th, .result-table td {
     padding: 15px;
     border: 1px solid #ccc;
     text-align: center;
+    max-height: 300px;
+    overflow-y: auto;
 }
 
 .result-table th {
     background-color: #dcdcdc;
     font-size: 1rem;
     color: #333;
+    max-height: 300px;
+    overflow-y: auto;
 }
 
 
@@ -202,6 +214,8 @@ label[for="y"], select#r, #check-button {
 .result-table tbody tr:nth-child(even) {
     background-color: #f2f2f2;
     transition: background-color 0.3s ease;
+    max-height: 300px;
+    overflow-y: auto;
 }
 
 .error-message,
@@ -230,4 +244,8 @@ label[for="y"], select#r, #check-button {
 
 .footer:hover p {
     color: #333;
+}
+
+::-webkit-scrollbar {
+    width: 6px;
 }
